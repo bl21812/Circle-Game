@@ -1,4 +1,5 @@
-class Square extends Shape {
+
+public class Square extends Shape {
 
   private double height;
   private double width;
@@ -7,6 +8,7 @@ class Square extends Shape {
     super(x, y);
     this.height = height;
     this.width = width;
+    setBoundingBoxSize((int)(Math.round(width)), (int)(Math.round(height)));
   }
   
   public double getArea() {
@@ -23,10 +25,16 @@ class Square extends Shape {
   
   public void setHeight(double height) {
     this.height = height;
+    setBoundingBoxSize((int)(Math.round(width)), (int)(Math.round(height)));
   }
   
   public void setWidth(double width) {
     this.width = width;
+    setBoundingBoxSize((int)(Math.round(width)), (int)(Math.round(height)));
   }
   
+  private void setBoundingBoxSize(int width, int height) {
+	  super.getBoundingBox().setSize(width, height);
+  }
+	  
 }
